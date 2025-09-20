@@ -36,12 +36,19 @@ All colors MUST be HSL.
     --input: 214.3 31.8% 91.4%;
     --ring: 203 89% 53%;
 
-    --gradient-ocean: linear-gradient(135deg, hsl(203, 89%, 53%), hsl(195, 100%, 39%));
-    --gradient-sunset: linear-gradient(135deg, hsl(25, 95%, 53%), hsl(45, 93%, 57%));
-    --gradient-tropical: linear-gradient(135deg, hsl(203, 89%, 53%), hsl(25, 95%, 53%));
+    --gradient-ocean: linear-gradient(135deg, hsl(203, 89%, 53%), hsl(195, 100%, 39%), hsl(220, 100%, 50%));
+    --gradient-sunset: linear-gradient(135deg, hsl(25, 95%, 53%), hsl(45, 93%, 57%), hsl(15, 100%, 60%));
+    --gradient-tropical: linear-gradient(135deg, hsl(203, 89%, 53%), hsl(180, 100%, 40%), hsl(25, 95%, 53%));
+    --gradient-hero: linear-gradient(135deg, hsl(203, 89%, 53%) 0%, hsl(195, 100%, 39%) 50%, hsl(25, 95%, 53%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(210, 40%, 98%) 100%);
     
-    --shadow-glow: 0 10px 40px -10px hsl(203, 89%, 53%, 0.3);
-    --shadow-warm: 0 10px 40px -10px hsl(25, 95%, 53%, 0.3);
+    --shadow-glow: 0 20px 40px -10px hsl(203, 89%, 53%, 0.4);
+    --shadow-warm: 0 20px 40px -10px hsl(25, 95%, 53%, 0.4);
+    --shadow-elegant: 0 10px 30px -5px hsl(220, 26%, 14%, 0.1);
+    --shadow-card: 0 4px 20px -2px hsl(220, 26%, 14%, 0.08);
+
+    --blur-glass: blur(12px);
+    --border-glass: 1px solid hsl(255, 255%, 255%, 0.18);
 
     --radius: 0.5rem;
 

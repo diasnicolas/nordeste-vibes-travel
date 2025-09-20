@@ -62,10 +62,17 @@ export default {
         'gradient-ocean': 'var(--gradient-ocean)',
         'gradient-sunset': 'var(--gradient-sunset)',
         'gradient-tropical': 'var(--gradient-tropical)',
+        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-card': 'var(--gradient-card)',
       },
       boxShadow: {
         'glow': 'var(--shadow-glow)',
         'warm': 'var(--shadow-warm)',
+        'elegant': 'var(--shadow-elegant)',
+        'card': 'var(--shadow-card)',
+      },
+      backdropBlur: {
+        'glass': 'var(--blur-glass)',
       },
       borderRadius: {
         lg: "var(--radius)",
