@@ -17,10 +17,10 @@ const Destinations = () => {
       name: "Lençóis Maranhenses",
       state: "Maranhão",
       image: lencoisImage,
+      images: [lencoisImage, lencoisImage, lencoisImage],
       rating: 4.9,
       highlights: ["Lagoas cristalinas", "Dunas brancas", "Pôr do sol único"],
       description: "Um dos destinos mais impressionantes do Brasil, com paisagens únicas de dunas e lagoas.",
-      price: "A partir de R$ 1.299",
       fullDescription: "Os Lençóis Maranhenses são um espetáculo da natureza único no mundo. Durante a época das chuvas (janeiro a junho), as depressões entre as dunas se enchem de água da chuva, formando milhares de lagoas de água doce cristalina. É um verdadeiro oásis no meio do semiárido brasileiro, oferecendo uma experiência surreal e inesquecível.",
       bestTime: "Junho a Setembro",
       duration: "4 a 6 dias",
@@ -44,10 +44,10 @@ const Destinations = () => {
       name: "Fernando de Noronha",
       state: "Pernambuco", 
       image: noronhaImage,
+      images: [noronhaImage, noronhaImage, noronhaImage],
       rating: 5.0,
       highlights: ["Mergulho com golfinhos", "Praias paradisíacas", "Vida marinha"],
       description: "Arquipélago paradisíaco considerado um dos melhores destinos de mergulho do mundo.",
-      price: "A partir de R$ 2.499",
       fullDescription: "Fernando de Noronha é um arquipélago vulcânico que oferece algumas das águas mais cristalinas do planeta. Patrimônio Mundial da UNESCO, o local é um santuário ecológico com biodiversidade marinha única. É o destino perfeito para quem busca contato direto com a natureza preservada e experiências submarinas extraordinárias.",
       bestTime: "Abril a Novembro",
       duration: "5 a 7 dias",
@@ -71,10 +71,10 @@ const Destinations = () => {
       name: "Salvador",
       state: "Bahia",
       image: salvadorImage,
+      images: [salvadorImage, salvadorImage, salvadorImage],
       rating: 4.8,
       highlights: ["Pelourinho histórico", "Cultura afro-brasileira", "Gastronomia baiana"],
       description: "Primeira capital do Brasil, rica em história, cultura e tradições únicas.",
-      price: "A partir de R$ 899",
       fullDescription: "Salvador é uma cidade vibrante que pulsa com a energia da cultura afro-brasileira. O centro histórico preservado, conhecido como Pelourinho, é Patrimônio da Humanidade pela UNESCO. A cidade oferece uma experiência única de imersão cultural, com sua música, dança, culinária e arquitetura colonial colorida que conta a história do Brasil.",
       bestTime: "Dezembro a Março",
       duration: "3 a 5 dias", 
@@ -98,10 +98,10 @@ const Destinations = () => {
       name: "Jericoacoara",
       state: "Ceará",
       image: jericoacoaraImage,
+      images: [jericoacoaraImage, jericoacoaraImage, jericoacoaraImage],
       rating: 4.9,
       highlights: ["Kitesurf", "Duna do Pôr do Sol", "Vila de pescadores"],
       description: "Destino paradisíaco famoso pelos ventos ideais para esportes aquáticos.",
-      price: "A partir de R$ 1.099",
       fullDescription: "Jericoacoara é um destino único que combina belezas naturais exuberantes com um ambiente rústico e acolhedor. Antiga vila de pescadores transformada em destino internacional, Jeri mantém seu charme autêntico com ruas de areia, casas simples e uma atmosfera relaxante. É considerado um dos melhores spots de kitesurf do mundo.",
       bestTime: "Julho a Dezembro",
       duration: "4 a 6 dias",
@@ -177,9 +177,6 @@ const Destinations = () => {
                 <div className="absolute top-4 left-4 bg-gradient-tropical text-white px-4 py-2 rounded-full text-sm font-semibold shadow-glow">
                   {destination.state}
                 </div>
-                <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="text-white text-lg font-bold">{destination.price}</div>
-                </div>
               </div>
               
               <CardContent className="p-6">
@@ -197,8 +194,7 @@ const Destinations = () => {
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <div className="text-xl font-bold text-primary">{destination.price}</div>
+                <div className="flex justify-end">
                   <Button 
                     size="sm" 
                     className="bg-gradient-tropical hover:shadow-glow transition-all duration-300 text-white"

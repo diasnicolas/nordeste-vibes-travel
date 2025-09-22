@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -12,17 +12,20 @@ import {
   Utensils,
   Clock,
   ThermometerSun,
-  Waves
+  Waves,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
+import { useState } from "react";
 
 interface Destination {
   name: string;
   state: string;
   image: string;
+  images?: string[];
   rating: number;
   highlights: string[];
   description: string;
-  price: string;
   fullDescription: string;
   bestTime: string;
   duration: string;
@@ -40,7 +43,19 @@ interface DestinationModalProps {
 }
 
 const DestinationModal = ({ destination, isOpen, onClose }: DestinationModalProps) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
   if (!destination) return null;
+
+  const images = destination.images || [destination.image];
+  
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   const infoItems = [
     { icon: Calendar, label: "Melhor época", value: destination.bestTime },
@@ -50,13 +65,13 @@ const DestinationModal = ({ destination, isOpen, onClose }: DestinationModalProp
   ];
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-3xl font-bold text-primary mb-2">
+    <Sheet open={isOpen} onOpenChange={onClose}>
+      <SheetContent className="w-full h-full max-w-none p-0 overflow-y-auto">
+        <SheetHeader className="p-6 pb-4 border-b">
+          <SheetTitle className="text-3xl font-bold text-primary text-left">
             {destination.name}
-          </DialogTitle>
-          <div className="flex items-center gap-2 mb-4">
+          </SheetTitle>
+          <div className="flex items-center gap-2">
             <Badge variant="secondary" className="bg-accent text-white">
               {destination.state}
             </Badge>
@@ -65,21 +80,49 @@ const DestinationModal = ({ destination, isOpen, onClose }: DestinationModalProp
               <span className="font-medium">{destination.rating}</span>
             </div>
           </div>
-        </DialogHeader>
+        </SheetHeader>
 
-        <div className="space-y-6">
-          {/* Hero Image */}
+        <div className="p-6 space-y-6">
+          {/* Image Carousel */}
           <div className="relative rounded-xl overflow-hidden">
             <img 
-              src={destination.image} 
+              src={images[currentImageIndex]} 
               alt={destination.name}
-              className="w-full h-64 object-cover"
+              className="w-full h-64 sm:h-80 object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <div className="text-2xl font-bold">{destination.price}</div>
-              <div className="text-sm opacity-90">por pessoa</div>
-            </div>
+            
+            {images.length > 1 && (
+              <>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
+                  onClick={prevImage}
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </Button>
+                <Button
+                  variant="ghost" 
+                  size="icon"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
+                  onClick={nextImage}
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+                
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`w-2 h-2 rounded-full transition-colors ${
+                        index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                      }`}
+                      onClick={() => setCurrentImageIndex(index)}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
 
           {/* Description */}
@@ -167,26 +210,28 @@ const DestinationModal = ({ destination, isOpen, onClose }: DestinationModalProp
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t">
-            <Button 
-              className="flex-1 bg-gradient-tropical hover:shadow-glow transition-all duration-300"
-              size="lg"
-            >
-              <Car className="w-4 h-4 mr-2" />
-              Montar Pacote Personalizado
-            </Button>
-            <Button 
-              variant="outline" 
-              className="flex-1 border-primary text-primary hover:bg-primary hover:text-white"
-              size="lg"
-            >
-              <Utensils className="w-4 h-4 mr-2" />
-              Falar com Especialista
-            </Button>
+          <div className="sticky bottom-0 bg-background pt-6 pb-4 border-t mt-8">
+            <div className="flex flex-col gap-3">
+              <Button 
+                className="w-full bg-gradient-tropical hover:shadow-glow transition-all duration-300"
+                size="lg"
+              >
+                <Car className="w-5 h-5 mr-2" />
+                Montar Pacote Personalizado
+              </Button>
+              <Button 
+                variant="outline" 
+                className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                size="lg"
+              >
+                <Utensils className="w-5 h-5 mr-2" />
+                Falar com Especialista
+              </Button>
+            </div>
           </div>
         </div>
-      </DialogContent>
-    </Dialog>
+      </SheetContent>
+    </Sheet>
   );
 };
 
