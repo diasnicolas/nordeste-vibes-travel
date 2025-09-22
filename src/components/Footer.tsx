@@ -29,8 +29,7 @@ const Footer = () => {
                 <Button
                   key={index}
                   size="lg"
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white hover:text-primary transition-all duration-300"
+                  variant="social"
                   asChild
                 >
                   <a href={social.href} target="_blank" rel="noopener noreferrer">
