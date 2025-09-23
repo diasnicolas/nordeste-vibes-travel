@@ -39,7 +39,7 @@ const Services = () => {
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
             Nossos Serviços
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -58,9 +58,9 @@ const Services = () => {
               >
                 <CardContent className="p-6 text-center">
                   <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-8 h-8 text-white" />
+                    <Icon className="w-8 h-8 text-accent" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2 text-lg group-hover:text-primary transition-colors">
+                  <h3 className="font-semibold text-muted-foreground mb-2 text-lg group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">

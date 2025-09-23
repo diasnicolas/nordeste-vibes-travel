@@ -4,10 +4,19 @@ import heroImage from "@/assets/hero-beach.jpg";
 
 const Hero = () => {
   const stats = [
-    { number: "2000+", label: "Viagens Realizadas" },
     { number: "4.9", label: "Avaliação Média", icon: Star },
     { number: "98%", label: "Clientes Satisfeitos" },
   ];
+
+  const scrollToSection = () => {
+  const aboutSection = document.getElementById('sobre');
+  if (aboutSection) {
+    aboutSection.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start' 
+    });
+  }
+};
 
   return (
     <section 
@@ -25,10 +34,13 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md rounded-full px-6 py-2 mb-8 border border-white/30">
-            <Star className="w-4 h-4 text-yellow-400 fill-current" />
-            <span className="text-white text-sm font-medium">Agência #1 do Nordeste 2024</span>
-          </div>
+          <div 
+  className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md rounded-full px-6 py-2 mb-8 border border-white/30 cursor-pointer hover:bg-white/30 hover:scale-105 transition-all duration-300 group"
+  onClick={scrollToSection}
+>
+  <Plane className="w-4 h-4 text-yellow-400 fill-current group-hover:animate-bounce" />
+  <span className="text-white text-sm font-medium">Rota de Embarque</span>
+</div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Descubra os
@@ -73,23 +85,6 @@ const Hero = () => {
               <Plane className="w-5 h-5 mr-2" />
               Falar com Especialista
             </Button>
-          </div>
-
-
-          {/* Trust Indicators */}
-          <div className="mt-16 flex flex-wrap justify-center items-center gap-8 text-white/60">
-            <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5" />
-              <span className="text-sm">Pagamento Seguro</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Users className="w-5 h-5" />
-              <span className="text-sm">Atendimento 24/7</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Star className="w-5 h-5" />
-              <span className="text-sm">Garantia de Qualidade</span>
-            </div>
           </div>
         </div>
       </div>
