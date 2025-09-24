@@ -7,7 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: MessageCircle, href: "whatsapp?tipo=faleconosco", label: "WhatsApp" },
+    { icon: MessageCircle, href: "/#/whatsapp?tipo=faleconosco", label: "WhatsApp" },
     { icon: Instagram, href: "https://instagram.com/rotadeembarquetur", label: "Instagram" },
     { icon: Facebook, href: "https://facebook.com/rotadeembarquetur", label: "Facebook" },
   ];
@@ -73,14 +73,13 @@ const Footer = () => {
 
       {/* WhatsApp Fixed Button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <Button
+        <Button onClick={()=> irParaWhatsApp("faleconosco", null)}
           size="lg"
           className="bg-green-500 hover:bg-green-600 rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all duration-800 animate-pulse"
           asChild
         >
-          <a href="https://wa.me/5585999999999" target="_blank" rel="noopener noreferrer">
+          <a>
             <MessageCircle className="w-6 h-6" />
-            <span className="sr-only">Contato via WhatsApp</span>
           </a>
         </Button>
       </div>
