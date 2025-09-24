@@ -1,15 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Facebook, Instagram, MessageCircle } from "lucide-react";
 import logoAgencia from '@/assets/logo-rodape.svg';
+import { useIrParaWhatsApp } from "@/hooks/useIrParaWhatsApp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: MessageCircle, href: "https://wa.me/5585999999999", label: "WhatsApp" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: MessageCircle, href: "whatsapp?tipo=faleconosco", label: "WhatsApp" },
+    { icon: Instagram, href: "https://instagram.com/rotadeembarquetur", label: "Instagram" },
+    { icon: Facebook, href: "https://facebook.com/rotadeembarquetur", label: "Facebook" },
   ];
+
+  const irParaWhatsApp = useIrParaWhatsApp();
 
   return (
     <footer className="bg-primary text-white">
@@ -47,7 +50,7 @@ const Footer = () => {
 
           {/* CNPJ */}
           <div className="text-white/80">
-            <p>CNPJ: 00.000.000/0001-00</p>
+            <p>CNPJ: 42.102.852/0001-30</p>
           </div>
 
           {/* Copyright and Developer */}

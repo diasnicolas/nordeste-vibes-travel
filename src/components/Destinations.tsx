@@ -3,30 +3,31 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Star, Camera } from "lucide-react";
 import { useState } from "react";
 import DestinationModal from "./DestinationModal";
-import lencois0Image from "@/assets/lencois0.jpg";
-import lencois1Image from "@/assets/lencois1.jpg";
-import lencois2Image from "@/assets/lencois2.jpg";
-import noronha0Image from "@/assets/noronha0.jpg";
-import noronha1Image from "@/assets/noronha1.jpg";
-import noronha2Image from "@/assets/noronha2.jpg";
-import salvador0Image from "@/assets/salvador0.jpg";
-import salvador1Image from "@/assets/salvador1.jpg";
-import salvador2Image from "@/assets/salvador2.jpg";
-import jericoacoara0Image from "@/assets/jericoacoara0.jpg";
-import jericoacoara1Image from "@/assets/jericoacoara1.jpg";
-import jericoacoara2Image from "@/assets/jericoacoara2.jpg";
-import fortaleza0Image from "@/assets/fortaleza0.jpg";
-import fortaleza1Image from "@/assets/fortaleza1.jpg";
-import fortaleza2Image from "@/assets/fortaleza2.jpg";
-import portoGalinhas0Image from "@/assets/portogalinhas0.jpg";
-import portoGalinhas1Image from "@/assets/portogalinhas1.jpg";
-import portoGalinhas2Image from "@/assets/portogalinhas2.jpg";
-import maragogi0Image from "@/assets/maragogi0.jpg";
-import maragogi1Image from "@/assets/maragogi1.jpg";
-import maragogi2Image from "@/assets/maragogi2.jpg";
-import chapadaDiamantina0Image from "@/assets/chapadadiamantina0.jpg";
-import chapadaDiamantina1Image from "@/assets/chapadadiamantina1.jpg";
-import chapadaDiamantina2Image from "@/assets/chapadadiamantina2.jpg";
+import lencois0Image from "@/assets/lencois0.webp";
+import lencois1Image from "@/assets/lencois1.webp";
+import lencois2Image from "@/assets/lencois2.webp";
+import noronha0Image from "@/assets/noronha0.webp";
+import noronha1Image from "@/assets/noronha1.webp";
+import noronha2Image from "@/assets/noronha2.webp";
+import salvador0Image from "@/assets/salvador0.webp";
+import salvador1Image from "@/assets/salvador1.webp";
+import salvador2Image from "@/assets/salvador2.webp";
+import jericoacoara0Image from "@/assets/jericoacoara0.webp";
+import jericoacoara1Image from "@/assets/jericoacoara1.webp";
+import jericoacoara2Image from "@/assets/jericoacoara2.webp";
+import fortaleza0Image from "@/assets/fortaleza0.webp";
+import fortaleza1Image from "@/assets/fortaleza1.webp";
+import fortaleza2Image from "@/assets/fortaleza2.webp";
+import portoGalinhas0Image from "@/assets/portogalinhas0.webp";
+import portoGalinhas1Image from "@/assets/portogalinhas1.webp";
+import portoGalinhas2Image from "@/assets/portogalinhas2.webp";
+import maragogi0Image from "@/assets/maragogi0.webp";
+import maragogi1Image from "@/assets/maragogi1.webp";
+import maragogi2Image from "@/assets/maragogi2.webp";
+import chapadaDiamantina0Image from "@/assets/chapadadiamantina0.webp";
+import chapadaDiamantina1Image from "@/assets/chapadadiamantina1.webp";
+import chapadaDiamantina2Image from "@/assets/chapadadiamantina2.webp";
+import { useIrParaWhatsApp } from "@/hooks/useIrParaWhatsApp";
 
 const Destinations = () => {
   const [selectedDestination, setSelectedDestination] = useState(null);
@@ -275,12 +276,14 @@ const Destinations = () => {
     setIsModalOpen(true);
   };
 
+  const irParaWhatsApp = useIrParaWhatsApp();
+
   return (
     <section className="py-20 bg-secondary/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Destinos Imperdíveis do Nordeste
+            Melhores Destinos do Nordeste
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Descubra os destinos mais encantadores do Nordeste brasileiro, 
@@ -370,7 +373,7 @@ const Destinations = () => {
               <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
                 Entre em contato e monte seu roteiro personalizado pelos destinos mais incríveis do Nordeste
               </p>
-              <Button 
+              <Button onClick={() => irParaWhatsApp("planejarminhaviagem", null)}
                 size="lg"
                 className="bg-white text-primary hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 px-8 py-4 text-lg font-semibold rounded-full shadow-warm"
               >

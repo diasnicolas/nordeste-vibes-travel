@@ -9,7 +9,7 @@ import {
   Camera, 
   Plane, 
   Car, 
-  Utensils,
+  Check,
   Clock,
   ThermometerSun,
   Waves,
@@ -17,6 +17,7 @@ import {
   ChevronRight
 } from "lucide-react";
 import { useState } from "react";
+import { useIrParaWhatsApp } from "@/hooks/useIrParaWhatsApp";
 
 interface Destination {
   name: string;
@@ -45,6 +46,8 @@ interface DestinationModalProps {
 const DestinationModal = ({ destination, isOpen, onClose }: DestinationModalProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
+  const irParaWhatsApp = useIrParaWhatsApp();
+
   if (!destination) return null;
 
   const images = destination.images || [destination.image];
@@ -63,6 +66,8 @@ const DestinationModal = ({ destination, isOpen, onClose }: DestinationModalProp
     { icon: ThermometerSun, label: "Clima", value: destination.climate },
     { icon: Users, label: "Ideal para", value: "Casais, Famílias, Aventureiros" },
   ];
+
+  
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
@@ -180,7 +185,7 @@ const DestinationModal = ({ destination, isOpen, onClose }: DestinationModalProp
             </div>
           </div>
 
-          {/* Includes */}
+          {/* Includes 
           <div>
             <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2">
               <Plane className="w-5 h-5" />
@@ -195,7 +200,7 @@ const DestinationModal = ({ destination, isOpen, onClose }: DestinationModalProp
               ))}
             </div>
           </div>
-
+*/}
           {/* Tips */}
           <div>
             <h3 className="text-xl font-semibold text-primary mb-3">Dicas Importantes</h3>
@@ -212,19 +217,19 @@ const DestinationModal = ({ destination, isOpen, onClose }: DestinationModalProp
           {/* Action Buttons */}
           <div className="sticky bottom-0 bg-background pt-6 pb-4 border-t mt-8">
             <div className="flex flex-col gap-3">
-              <Button 
+              <Button onClick={() => irParaWhatsApp("pacotepersonalizadodestino", destination.name)}
                 className="w-full bg-gradient-tropical hover:shadow-glow transition-all duration-300"
                 size="lg"
               >
                 <Car className="w-5 h-5 mr-2" />
                 Montar Pacote Personalizado
               </Button>
-              <Button 
+              <Button onClick={() => irParaWhatsApp("especialistadestino", destination.name)}
                 variant="outline" 
                 className="w-full border-primary text-primary hover:bg-primary hover:text-white"
                 size="lg"
               >
-                <Utensils className="w-5 h-5 mr-2" />
+                <Check className="w-5 h-5 mr-2" />
                 Falar com Especialista
               </Button>
             </div>

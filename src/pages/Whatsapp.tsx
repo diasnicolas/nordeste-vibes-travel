@@ -9,55 +9,52 @@ const useWhatsAppParams = ({ autoRedirect = true, redirectDelay = 3000 } = {}) =
     const hash = window.location.hash; // "#/whatsapp?tipo=reservaagora"
     const queryString = hash.split("?")[1]; // "tipo=reservaagora"
     const params = new URLSearchParams(queryString);
-
     return params.get(name) || '';
   };
 
-  const buildWhatsAppUrl = (phone: string, messageType: string) => {
+  const buildWhatsAppUrl = (phone: string, messageType: string, destino: string) => {
     let message = '';
     
     switch (messageType) {
-      case 'reservaagora':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de reservar!😁";
+      case 'montesuaviagemperfeita':
+        message = "Oi! vi sua página sobre Nordeste, gostaria de montar a viagem perfeita!😁";
         break;
       case 'especialista':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de falar com um especialista!😁";
-        break;
-      case 'verpacotes':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de falar saber mais sobre os pacotes!😁";
+        message = "Oi! vi sua página sobre Nordeste, gostaria de falar com um especialista!😁";
         break;
       case 'orcamentopassagensaereas':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de orçamento de passagem aérea!😁";
+        message = "Oi! vi sua página sobre Nordeste, gostaria de orçamento de passagem aérea!😁";
         break;
       case 'orcamentohospedagem':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de orçamento de hospedagem!😁";
-        break;
-      case 'orcamentopasseiostours':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de orçamento de passeios/tours!😁";
+        message = "Oi! vi sua página sobre Nordeste, gostaria de orçamento de hospedagem!😁";
         break;
       case 'orcamentoingressos':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de orçamento de ingressos parques/atrações!😁";
+        message = "Oi! vi sua página sobre Nordeste, gostaria de orçamento de ingressos parques/atrações!😁";
         break;
       case 'orcamentoseguroviagem':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de orçamento de seguro viagem!😁";
+        message = "Oi! vi sua página sobre Nordeste, gostaria de orçamento de seguro viagem!😁";
         break;
      case 'orcamentopacotecompleto':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de orçamento de pacote completo!😁";
+        message = "Oi! vi sua página sobre Nordeste, gostaria de orçamento de pacote completo!😁";
         break;
       case 'faleconosco':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de mais informações!😁";
+        message = "Oi! vi sua página sobre Nordeste, gostaria de mais informações!😁";
         break;
-      case 'roteiropersonalizado':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de ajuda para montar um roteiro personalizado!😁";
+      case 'planejarminhaviagem':
+        message = "Oi! vi sua página sobre Nordeste, gostaria de planejar minha viagem com vocês!😁";
         break;
-      case 'naoencontrouresposta':
-        message = "Oi! vi o seu anúncio do Natal Luz, ainda fiquei com dúvidas, poderia me ajudar?😁";
+       case 'pacotepersonalizadodestino':
+        message = "Oi! vi sua página sobre Nordeste, gostaria de montar um pacote personalizado!😁";
+        if (destino && destino !== '')
+          message = `Oi! vi sua página do Nordeste sobre ${destino}, gostaria de montar um pacote personalizado!😁`;
         break;
-      case 'orcamento':
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de solicitar um orçamento!😁";
+      case 'especialistadestino':
+        message = "Oi! vi sua página sobre Nordeste, gostaria de falar com um especialista!😁";
+        if (destino && destino !== '')
+          message = `Oi! vi sua página do Nordeste sobre ${destino}, gostaria de falar com um especialista!😁`;
         break;
       default:
-        message = "Oi! vi o seu anúncio do Natal Luz, gostaria de saber mais sobre os serviços/produtos que você oferece!😁";
+        message = "Oi! vi sua página sobre Nordeste, gostaria de saber mais sobre os serviços/produtos que você oferece!😁";
     }
 
     const encodedMessage = encodeURIComponent(message);
@@ -83,10 +80,11 @@ const useWhatsAppParams = ({ autoRedirect = true, redirectDelay = 3000 } = {}) =
 
 // 1° efeito — monta a URL
 useEffect(() => {
-  const telefone = getUrlParameter('telefone') || '5551981670944';
+  const telefone = getUrlParameter('telefone') || '5531996297732';
   const tipo = getUrlParameter('tipo') || 'padrao';
-  console.log(telefone)
-  setWhatsappUrl(buildWhatsAppUrl(telefone, tipo));
+  const destino = getUrlParameter('destino') || '';
+
+  setWhatsappUrl(buildWhatsAppUrl(telefone, tipo, destino));
 }, []);
 
 // 2° efeito — inicia o redirecionamento quando a URL mudar
@@ -109,18 +107,6 @@ const WhatsApp: React.FC = () => {
     autoRedirect: true,
     redirectDelay: 3000
   });
-
-  // 🚀 Adicionando Google Tag Manager somente nesta página
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.innerHTML = `
-  gtag('event', 'conversion', {'send_to': 'AW-17439512252/LEgACOWht5AbELyt5_tA'});    `;
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 bg-pattern">
@@ -190,8 +176,7 @@ const WhatsApp: React.FC = () => {
           )}
           
           <div className="mt-6 text-center text-sm text-gray-500 border-t pt-4">
-            <p>TravelLSTur - O seu destino começa aqui</p>
-            <p className="font-semibold mt-1">Encontre a sua viagem</p>
+            <p>Rota de Embarque - O Destino dos seus Sonhos começa Aqui.</p>
           </div>
         </div>
       </div>

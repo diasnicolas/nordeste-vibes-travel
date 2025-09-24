@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Plane, MapPin, Shield, Package, Ticket } from "lucide-react";
+import { useIrParaWhatsApp } from "@/hooks/useIrParaWhatsApp";
 
 const Services = () => {
   const services = [
@@ -7,33 +8,35 @@ const Services = () => {
       icon: Plane, 
       title: "Passagens Aéreas", 
       description: "Melhores preços e horários",
-      link: "https://wa.me/5585999999999?text=Olá! Gostaria de informações sobre passagens aéreas."
+      link: "orcamentopassagensaereas"
     },
     { 
       icon: MapPin, 
       title: "Hospedagem", 
       description: "Hotéis e pousadas selecionados",
-      link: "https://wa.me/5585999999999?text=Olá! Gostaria de informações sobre hospedagem."
+      link: "orcamentohospedagem"
     },
     { 
       icon: Shield, 
       title: "Seguro Viagem", 
       description: "Proteção completa",
-      link: "https://wa.me/5585999999999?text=Olá! Gostaria de informações sobre seguro viagem."
+      link: "orcamentoseguroviagem"
     },
     { 
       icon: Ticket, 
       title: "Ingressos", 
       description: "Atrações e passeios",
-      link: "https://wa.me/5585999999999?text=Olá! Gostaria de informações sobre ingressos."
+      link: "orcamentoingressos"
     },
     { 
       icon: Package, 
       title: "Pacotes Completos", 
       description: "Viagens sob medida",
-      link: "https://wa.me/5585999999999?text=Olá! Gostaria de informações sobre pacotes completos."
+      link: "orcamentopacotecompleto"
     },
   ];
+
+    const irParaWhatsApp = useIrParaWhatsApp();
 
   return (
     <section className="py-16 bg-background">
@@ -54,7 +57,7 @@ const Services = () => {
               <Card 
                 key={index} 
                 className="group cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 hover:border-primary/20"
-                onClick={() => window.open(service.link, '_blank')}
+                onClick={() => irParaWhatsApp(service.link, null)}
               >
                 <CardContent className="p-6 text-center">
                   <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">

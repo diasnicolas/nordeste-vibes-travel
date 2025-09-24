@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Plane, ArrowRight, Star, Users, Shield } from "lucide-react";
-import heroImage from "@/assets/hero-beach.jpg";
+import heroImage from "@/assets/hero-beach.webp";
+import { useIrParaWhatsApp } from "@/hooks/useIrParaWhatsApp";
 
 const Hero = () => {
   const stats = [
@@ -16,7 +17,9 @@ const Hero = () => {
       block: 'start' 
     });
   }
-};
+  };
+  
+  const irParaWhatsApp = useIrParaWhatsApp();
 
   return (
     <section 
@@ -45,13 +48,13 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Descubra os
             <span className="block bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 bg-clip-text text-transparent">
-              Tesouros do Nordeste
+              Paraísos do Nordeste
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
-            Especialistas em criar experiências únicas nos destinos mais encantadores do Brasil. 
-            <span className="block mt-2 font-medium">Sua jornada dos sonhos começa aqui.</span>
+            Especialistas em criar experiências únicas nos destinos mais encantadores do Nordeste Brasileiro. 
+            <span className="block mt-2 font-medium">O Destino dos seus Sonhos começa Aqui.</span>
           </p>
 
           {/* Stats */}
@@ -69,7 +72,7 @@ const Hero = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button 
+            <Button onClick={() => irParaWhatsApp("montesuaviagemperfeita", null) }
               size="lg" 
               className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-warm hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-lg px-8 py-6 rounded-full group"
             >
@@ -77,7 +80,7 @@ const Hero = () => {
               Monte Sua Viagem Perfeita
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button 
+            <Button  onClick={() => irParaWhatsApp("especialista", null) }
               variant="outline" 
               size="lg"
               className="border-2 border-white/80 text-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 text-lg px-8 py-6 rounded-full backdrop-blur-sm bg-white/10"

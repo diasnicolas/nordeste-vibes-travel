@@ -2,15 +2,22 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Facebook, Instagram, MessageCircle, MapPin, Phone, Mail } from "lucide-react";
-import agentPhoto from "@/assets/agent-photo.jpg";
+import agentPhoto from "@/assets/agent-photo.webp";
 import logoAgencia from '@/assets/logo.svg';
 
 const About = () => {
   const socialLinks = [
-    { icon: MessageCircle, href: "https://wa.me/5585999999999", label: "WhatsApp" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Instagram, href: "https://instagram.com/rotadeembarquetur", label: "Instagram" },
+    { icon: Facebook, href: "https://facebook.com/rotadeembarquetur", label: "Facebook" },
   ];
+
+  const enviarEmailClick = () => {
+    window.location.href = "mailto:reservas@rotadeembarque.tur.br";
+  };
+
+  const fazerLigacaoClick = () => {
+    window.location.href = "tel:+5531996297732";
+  };
 
   return (
     <section id="sobre" className="py-20 bg-secondary/30">
@@ -29,13 +36,10 @@ const About = () => {
               Conheça nossa agência
             </h2>
             <p className="text-lg text-justify text-muted-foreground mb-6 leading-relaxed">
-              Com mais de 10 anos de experiência no turismo nordestino, nossa agência 
-              especializada oferece atendimento personalizado e conhecimento profundo 
-              dos melhores destinos da região.
+              A Rota de Embarque nasceu do amor por viajar, ajudando familiares e amigos a planejarem roteiros completos com dedicação.
             </p>
             <p className="text-lg text-justify text-muted-foreground mb-8 leading-relaxed">
-              Desde praias paradisíacas até centros históricos encantadores, 
-              criamos experiências únicas que ficam para sempre na memória.
+              Com confiança e acolhimento, transformamos experiências pessoais em uma agência que realiza sonhos e cria memórias inesquecíveis.
             </p>
             
 
@@ -68,58 +72,41 @@ const About = () => {
             className="w-32 h-32 rounded-full object-cover mb-4"
           />
           <h3 className="text-2xl font-semibold text-primary mb-2">
-            Ana Paula Santos
+            Jessica & Lucas
           </h3>
           <p className="text-accent font-medium text-lg mb-4">
-            Especialista em Turismo Nordestino
+            Especialistas em Viagens
           </p>
         </div>
 
         {/* Conteúdo de Texto */}
         <div className="max-w-2xl mx-auto space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            Nascida e criada no Nordeste, Ana Paula é apaixonada por mostrar 
-            as belezas da região para viajantes do mundo todo. Com formação 
-            em Turismo e certificações internacionais, ela já organizou mais 
-            de 2.000 viagens inesquecíveis.
+          <p className="text-muted-foreground text-justify leading-relaxed">
+            A Rota de Embarque nasceu do nosso amor por viajar. Eu (Jéssica de Melo) e o Lucas sempre tivemos a paixão de viver boas experiências em cada viagem e, ao longo dos anos, ajudamos familiares e amigos a planejarem suas próprias viagens, desde a escolha do destino até cada detalhe do roteiro.
           </p>
           
-          <p className="text-muted-foreground leading-relaxed">
-            Sua expertise inclui roteiros personalizados, conhecimento profundo 
-            da cultura local e parcerias exclusivas com os melhores hotéis e 
-            operadores da região.
+          <p className="text-muted-foreground text-justify leading-relaxed">
+            Com o tempo, percebemos que esse cuidado e dedicação poderiam ir além do nosso círculo próximo. Decidimos transformar essa experiência em algo maior: criar uma agência que oferecesse não apenas pacotes de viagem, mas também confiança, atenção e acolhimento em cada etapa da jornada.
           </p>
 
-          <p className="text-muted-foreground leading-relaxed">
-            Com uma abordagem personalizada, Ana Paula se dedica a entender 
-            os sonhos e expectativas de cada cliente, criando roteiros únicos 
-            que superam as expectativas. Ela possui um conhecimento íntimo 
-            dos destinos nordestinos, desde as praias mais paradisíacas até 
-            os centros históricos mais charmosos.
+          <p className="text-muted-foreground text-justify leading-relaxed">
+           Acreditamos que viajar vai muito além de conhecer destinos; é viver momentos únicos. Por isso, oferecemos atendimento personalizado, roteiros exclusivos e todo o suporte necessário para que cada cliente sinta-se acolhido e aproveite plenamente sua experiência.
           </p>
 
-          <p className="text-muted-foreground leading-relaxed">
-            Fluente em português, inglês e espanhol, Ana Paula já atendeu 
-            clientes de diversos países, sempre com o compromisso de 
-            proporcionar experiências autênticas e memoráveis. Sua paixão 
-            pelo turismo sustentável e valorização da cultura local faz 
-            dela uma verdadeira embaixadora do Nordeste brasileiro.
+          <p className="text-muted-foreground text-justify leading-relaxed">
+            Na Rota de Embarque, cada cliente é especial, e nossa missão é transformar sonhos em memórias inesquecíveis.
           </p>
 
           <div className="bg-gradient-card rounded-lg p-4 mt-6">
-            <h4 className="font-semibold text-primary mb-3">Contato Direto</h4>
+            <h4 className="font-semibold text-primary mb-3">Contato</h4>
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4" />
-                <span>Fortaleza - CE</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground" onClick={fazerLigacaoClick}>
                 <Phone className="w-4 h-4" />
-                <span>(85) 99999-9999</span>
+                <span>(31) 9 9629-7732</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground" onClick={enviarEmailClick}>
                 <Mail className="w-4 h-4" />
-                <span>anapaula@viagensnordeste.com</span>
+                <span>reservas@rotadeembarque.tur.br</span>
               </div>
             </div>
           </div>
@@ -134,7 +121,8 @@ const About = () => {
           Siga-nos nas redes sociais
         </p>
         <div className="flex justify-center gap-4">
-          {socialLinks.map((social, index) => {
+       
+                      {socialLinks.map((social, index) => {
             const Icon = social.icon;
             return (
               <Button
