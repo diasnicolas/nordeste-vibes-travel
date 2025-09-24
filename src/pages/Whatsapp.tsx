@@ -80,7 +80,7 @@ const useWhatsAppParams = ({ autoRedirect = true, redirectDelay = 3000 } = {}) =
 
 // 1° efeito — monta a URL
 useEffect(() => {
-  const telefone = getUrlParameter('telefone') || '5531996297732';
+  const telefone = getUrlParameter('telefone') || '553196297732';
   const tipo = getUrlParameter('tipo') || 'padrao';
   const destino = getUrlParameter('destino') || '';
 
