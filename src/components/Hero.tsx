@@ -27,13 +27,11 @@ const Hero = () => {
       style={{ backgroundImage: `url(${heroImage})` }}
     >
       {/* Enhanced Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/70 to-accent/80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-accent/80"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
       
       {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute bottom-32 right-16 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-pulse delay-300"></div>
-      
+     
       <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
@@ -47,7 +45,7 @@ const Hero = () => {
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Descubra os
-            <span className="block bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-orange-300 via-orange-300 to-red-300 bg-clip-text text-transparent">
               Paraísos do Nordeste
             </span>
           </h1>
