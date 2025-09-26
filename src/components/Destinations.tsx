@@ -9,24 +9,24 @@ import lencois2Image from "@/assets/lencois2.webp";
 import noronha0Image from "@/assets/noronha0.webp";
 import noronha1Image from "@/assets/noronha1.webp";
 import noronha2Image from "@/assets/noronha2.webp";
-import salvador0Image from "@/assets/salvador0.webp";
-import salvador1Image from "@/assets/salvador1.webp";
-import salvador2Image from "@/assets/salvador2.webp";
+import portoseguro0Image from "@/assets/portoseguro0.webp";
+import portoseguro1Image from "@/assets/portoseguro1.webp";
+import portoseguro2Image from "@/assets/portoseguro2.webp";
 import jericoacoara0Image from "@/assets/jericoacoara0.webp";
 import jericoacoara1Image from "@/assets/jericoacoara1.webp";
 import jericoacoara2Image from "@/assets/jericoacoara2.webp";
-import fortaleza0Image from "@/assets/fortaleza0.webp";
-import fortaleza1Image from "@/assets/fortaleza1.webp";
-import fortaleza2Image from "@/assets/fortaleza2.webp";
+import maceio0Image from "@/assets/maceio0.webp";
+import maceio1Image from "@/assets/maceio1.webp";
+import maceio2Image from "@/assets/maceio2.webp";
 import portoGalinhas0Image from "@/assets/portogalinhas0.webp";
 import portoGalinhas1Image from "@/assets/portogalinhas1.webp";
 import portoGalinhas2Image from "@/assets/portogalinhas2.webp";
 import maragogi0Image from "@/assets/maragogi0.webp";
 import maragogi1Image from "@/assets/maragogi1.webp";
 import maragogi2Image from "@/assets/maragogi2.webp";
-import chapadaDiamantina0Image from "@/assets/chapadadiamantina0.webp";
-import chapadaDiamantina1Image from "@/assets/chapadadiamantina1.webp";
-import chapadaDiamantina2Image from "@/assets/chapadadiamantina2.webp";
+import natal0Image from "@/assets/natal0.webp";
+import natal1Image from "@/assets/natal1.webp";
+import natal2Image from "@/assets/natal2.webp";
 import { useIrParaWhatsApp } from "@/hooks/useIrParaWhatsApp";
 
 const Destinations = () => {
@@ -34,6 +34,87 @@ const Destinations = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const destinations = [
+   {
+    name: "Porto Seguro",
+    state: "Bahia",
+    image: portoseguro0Image,
+    images: [portoseguro0Image, portoseguro1Image, portoseguro2Image],
+    rating: 4.8,
+    highlights: ["Praias históricas", "Vida noturna animada", "Passeios culturais"],
+    description: "Um dos destinos mais procurados do Brasil, com praias paradisíacas e muita história.",
+    fullDescription: "Porto Seguro é considerado o berço do Brasil, local onde os portugueses chegaram em 1500. Além de suas belas praias com águas mornas e falésias coloridas, a cidade também oferece passeios históricos pelo centro, festas típicas e uma vibrante vida noturna.",
+    bestTime: "Novembro a Março",
+    duration: "5 a 7 dias",
+    climate: "Tropical úmido",
+    activities: ["Praia de Taperapuã", "Passeio histórico no centro", "Trancoso e Arraial d’Ajuda", "Passeios de escuna", "Vida noturna animada"],
+    includes: ["Hospedagem", "Traslado aeroporto", "Passeios guiados", "Café da manhã", "Seguro viagem"],
+    attractions: [
+      { name: "Centro Histórico", description: "Visita às igrejas e ao Marco do Descobrimento." },
+      { name: "Praia de Taperapuã", description: "A praia mais badalada, com barracas e shows ao vivo." },
+      { name: "Trancoso", description: "Vilarejo charmoso com praias preservadas e o famoso Quadrado." },
+      { name: "Arraial d’Ajuda", description: "Destino tranquilo com belas praias e vida noturna aconchegante." }
+    ],
+    tips: [
+      "Aproveite para conhecer as festas típicas de axé e forró",
+      "Leve roupas leves e confortáveis para o calor",
+      "Não deixe de visitar Trancoso ao entardecer",
+      "Reserve passeios com antecedência na alta temporada"
+    ]
+  },
+  {
+    name: "Natal",
+    state: "Rio Grande do Norte",
+    image: natal0Image,
+    images: [natal0Image, natal1Image, natal2Image],
+    rating: 4.9,
+    highlights: ["Dunas incríveis", "Praias paradisíacas", "Passeios de buggy"],
+    description: "Natal encanta com suas dunas, praias e o famoso passeio de buggy com emoção.",
+    fullDescription: "Natal é conhecida como a 'Cidade do Sol', oferecendo praias belíssimas, dunas imensas e lagoas de águas cristalinas. O passeio de buggy é uma das atrações mais procuradas, passando por Genipabu e outras paisagens incríveis. A cidade ainda possui forte influência cultural, artesanato e uma gastronomia rica em frutos do mar.",
+    bestTime: "Setembro a Fevereiro",
+    duration: "4 a 6 dias",
+    climate: "Tropical litorâneo",
+    activities: ["Passeio de buggy nas dunas", "Banho de lagoa", "Visita ao Forte dos Reis Magos", "Praia de Ponta Negra", "Visita a Genipabu"],
+    includes: ["Hospedagem em hotel à beira-mar", "Traslados", "Passeio de buggy", "Guia local", "Seguro viagem"],
+    attractions: [
+      { name: "Dunas de Genipabu", description: "O cartão-postal de Natal, com passeios de buggy e dromedários." },
+      { name: "Praia de Ponta Negra", description: "A mais famosa da cidade, com o Morro do Careca ao fundo." },
+      { name: "Forte dos Reis Magos", description: "Construção histórica de 1598, símbolo da cidade." },
+      { name: "Lagoa de Pitangui", description: "Perfeita para banho e lazer em águas tranquilas." }
+    ],
+    tips: [
+      "Peça o passeio de buggy 'com emoção' para mais adrenalina",
+      "Leve óculos escuros e protetor solar",
+      "Experimente a culinária local com peixes e frutos do mar",
+      "Reserve um dia para conhecer Pipa, ao sul de Natal"
+    ]
+  },
+  {
+    name: "Maceió",
+    state: "Alagoas",
+    image: maceio0Image,
+    images: [maceio0Image, maceio1Image, maceio2Image],
+    rating: 4.9,
+    highlights: ["Águas azul-turquesa", "Piscinas naturais", "Belezas tropicais"],
+    description: "Um dos litorais mais bonitos do Brasil, com águas cristalinas e piscinas naturais.",
+    fullDescription: "Maceió é conhecida como o Caribe Brasileiro, com praias de águas transparentes, piscinas naturais e coqueirais intermináveis. Além da orla urbana, os passeios para Maragogi e São Miguel dos Milagres são imperdíveis, oferecendo cenários paradisíacos e experiências inesquecíveis.",
+    bestTime: "Dezembro a Março",
+    duration: "5 a 7 dias",
+    climate: "Tropical litorâneo",
+    activities: ["Passeio às piscinas naturais de Pajuçara", "Visita a Maragogi", "Tour por São Miguel dos Milagres", "Praia do Francês", "Passeios de jangada"],
+    includes: ["Hospedagem em hotel à beira-mar", "Traslados", "Passeios guiados", "Café da manhã", "Seguro viagem"],
+    attractions: [
+      { name: "Praia de Pajuçara", description: "Famosa pelas jangadas que levam às piscinas naturais." },
+      { name: "Maragogi", description: "Conhecido como o Caribe Brasileiro, com águas cristalinas." },
+      { name: "São Miguel dos Milagres", description: "Praias tranquilas e piscinas naturais preservadas." },
+      { name: "Praia do Francês", description: "Movimentada, com boa estrutura turística e mar azul intenso." }
+    ],
+    tips: [
+      "Leve máscara de snorkel para aproveitar as piscinas naturais",
+      "Programe o passeio a Maragogi conforme a tábua da maré",
+      "Não esqueça o protetor solar e roupas leves",
+      "Experimente a culinária local com frutos do mar e tapioca"
+    ]
+  },
   {
     name: "Lençóis Maranhenses",
     state: "Maranhão",
@@ -89,33 +170,6 @@ const Destinations = () => {
     ]
   },
   {
-    name: "Salvador",
-    state: "Bahia",
-    image: salvador0Image,
-    images: [salvador0Image, salvador1Image, salvador2Image],
-    rating: 4.8,
-    highlights: ["Pelourinho histórico", "Cultura afro-brasileira", "Gastronomia baiana"],
-    description: "Primeira capital do Brasil, rica em história, cultura e tradições únicas.",
-    fullDescription: "Salvador é uma cidade vibrante que pulsa com a energia da cultura afro-brasileira. O centro histórico preservado, conhecido como Pelourinho, é Patrimônio da Humanidade pela UNESCO. A cidade oferece uma experiência única de imersão cultural, com sua música, dança, culinária e arquitetura colonial colorida que conta a história do Brasil.",
-    bestTime: "Dezembro a Março",
-    duration: "3 a 5 dias", 
-    climate: "Tropical quente e úmido",
-    activities: ["City tour histórico", "Aulas de capoeira", "Degustação gastronômica", "Shows de axé", "Visita a terreiros", "Compras no Mercado Modelo"],
-    includes: ["Hospedagem no centro histórico", "City tour", "Show folclórico", "Degustação de acarajé", "Transporte"],
-    attractions: [
-      { name: "Pelourinho", description: "Centro histórico com arquitetura colonial preservada e vida cultural intensa." },
-      { name: "Elevador Lacerda", description: "Cartão postal que conecta a cidade alta à cidade baixa." },
-      { name: "Igreja do Bonfim", description: "Santuário religioso famoso pelas fitinhas do Senhor do Bonfim." },
-      { name: "Mercado Modelo", description: "Centro de artesanato e cultura popular baiana." }
-    ],
-    tips: [
-      "Use roupas leves e confortáveis para o calor",
-      "Prove as comidas típicas como acarajé e vatapá", 
-      "Cuidado com pertences em locais muito movimentados",
-      "Aproveite a vida noturna animada do Pelourinho"
-    ]
-  },
-  {
     name: "Jericoacoara",
     state: "Ceará",
     image: jericoacoara0Image,
@@ -140,33 +194,6 @@ const Destinations = () => {
       "Use chinelos ou sapatos fechados nas ruas de areia",
       "Aproveite o vento constante para esportes aquáticos",
       "Respeite o ambiente natural preservado da região"
-    ]
-  },
-  {
-    name: "Fortaleza",
-    state: "Ceará",
-    image: fortaleza0Image,
-    images: [fortaleza0Image, fortaleza1Image, fortaleza2Image],
-    rating: 4.7,
-    highlights: ["Praias urbanas", "Vida noturna", "Centro Dragão do Mar"],
-    description: "Metrópole nordestina famosa pelas praias, cultura e hospitalidade do povo cearense.",
-    fullDescription: "Fortaleza é uma metrópole vibrante que combina modernidade com tradições regionais. Com praias urbanas famosas como Iracema e Meireles, a cidade oferece uma infraestrutura completa de turismo, gastronomia diversificada e uma vida cultural intensa. É o portal de entrada para explorar as belezas do Ceará.",
-    bestTime: "Julho a Dezembro",
-    duration: "3 a 4 dias",
-    climate: "Tropical semiárido",
-    activities: ["Passeio nas praias", "Forró universitário", "Centro de artesanato", "Mercado Central", "Dragão do Mar", "Beach Park"],
-    includes: ["Hospedagem em Fortaleza", "City tour", "Transfer aeroporto", "Passeio de jangada", "Seguro viagem"],
-    attractions: [
-      { name: "Praia de Iracema", description: "Praia urbana famosa pela vida noturna e pelo calçadão." },
-      { name: "Centro Dragão do Mar", description: "Complexo cultural com museus, cinema e espaços de arte." },
-      { name: "Beach Park", description: "Parque aquático temático, um dos maiores da América Latina." },
-      { name: "Mercado Central", description: "Centro de compras com artesanato, redes e produtos regionais." }
-    ],
-    tips: [
-      "Experimente a culinária local como peixada cearense",
-      "Aproveite o forró nos bares da Praia de Iracema",
-      "Use protetor solar - o sol é intenso o ano todo",
-      "Conheça as praias próximas como Cumbuco e Canoa Quebrada"
     ]
   },
   {
@@ -221,33 +248,6 @@ const Destinations = () => {
       "Leve câmera aquática para registrar a vida marinha",
       "Use protetor solar biodegradável",
       "Experimente a lagosta grelhada nos restaurantes locais"
-    ]
-  },
-  {
-    name: "Chapada Diamantina",
-    state: "Bahia",
-    image: chapadaDiamantina0Image,
-    images: [chapadaDiamantina0Image, chapadaDiamantina1Image, chapadaDiamantina2Image],
-    rating: 4.8,
-    highlights: ["Cachoeiras cristalinas", "Trilhas e montanhas", "Grutas milenares"],
-    description: "Paraíso do ecoturismo com paisagens montanhosas, cachoeiras e formações rochosas únicas.",
-    fullDescription: "A Chapada Diamantina é um dos destinos de ecoturismo mais importantes do Brasil, oferecendo paisagens montanhosas espetaculares, cachoeiras de águas cristalinas, grutas milenares e uma biodiversidade única. É o destino perfeito para quem busca aventura, contato com a natureza e experiências autênticas no coração da Bahia.",
-    bestTime: "Abril a Outubro",
-    duration: "5 a 8 dias",
-    climate: "Tropical de altitude",
-    activities: ["Trekking", "Rapel", "Mergulho em poços", "Espeleologia", "Escalada", "Observação de aves"],
-    includes: ["Hospedagem em Lençóis", "Guia especializado", "Trilhas principais", "Transporte 4x4", "Seguro viagem"],
-    attractions: [
-      { name: "Cachoeira da Fumaça", description: "Queda d'água de 380 metros, uma das mais altas do Brasil." },
-      { name: "Poço Encantado", description: "Gruta com lago subterrâneo de águas azul-cobalto cristalinas." },
-      { name: "Vale do Pati", description: "Considerado o trekking mais bonito do Brasil, com vales e montanhas." },
-      { name: "Morro do Pai Inácio", description: "Mirante natural com vista panorâmica da Chapada ao pôr do sol." }
-    ],
-    tips: [
-      "Use equipamentos adequados para trilhas",
-      "Contrate guias locais credenciados",
-      "Leve bastante água e lanches energéticos",
-      "Respeite os limites físicos nas trilhas mais difíceis"
     ]
   }
 ];

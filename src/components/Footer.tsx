@@ -15,7 +15,7 @@ const Footer = () => {
   const irParaWhatsApp = useIrParaWhatsApp();
 
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-gradient-hero text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col items-center text-center space-y-6">
           {/* Logo */}
